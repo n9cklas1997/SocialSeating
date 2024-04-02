@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Nicklas\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj": {}
+    "C:\\Users\\nhthy\\OneDrive\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Nicklas\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj": {
+    "C:\\Users\\nhthy\\OneDrive\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Nicklas\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj",
+        "projectUniqueName": "C:\\Users\\nhthy\\OneDrive\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj",
         "projectName": "SocialSeatingProject",
-        "projectPath": "c:\\Users\\Nicklas\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj",
-        "packagesPath": "C:\\Users\\Nicklas\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Nicklas\\Desktop\\SocialSeatingProject\\SocialSeating\\obj\\",
+        "projectPath": "C:\\Users\\nhthy\\OneDrive\\Desktop\\SocialSeatingProject\\SocialSeating\\SocialSeatingProject.csproj",
+        "packagesPath": "C:\\Users\\nhthy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nhthy\\OneDrive\\Desktop\\SocialSeatingProject\\SocialSeating\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Nicklas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nhthy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
