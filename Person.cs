@@ -2,12 +2,13 @@ using Microsoft.Data.SqlClient;
 
 namespace Human
 {
-    class Person
+    public class Person
     {
         // Private Fields
         private string? _Personality; // ? is a feature in C# 8.0 to indicate that a variable is nullable.
 
         // Properties
+        public int ID {get; set;}
         public string Name {get; set;}
     
         public int Age {get; set;}
@@ -33,33 +34,7 @@ namespace Human
             Name = name;
             Age = age;
             Personality = personality;
-        }
-
-        // Method that takes a connection string to a database and inserts the attributes (name, age & personality type) of a person. 
-        // Then the method returns the ID of said person.
-        public int InsertPersonRecord(string connectionString)
-        {
-            using (SqlConnection sqlCon = new SqlConnection(connectionString))
-            {
-                sqlCon.Open();
-
-                string cmdText = @"
-                    INSERT INTO PersonsTable (Name, Age, Personality)
-                    VALUES (@name, @age, @personality);
-                    SELECT SCOPE_IDENTITY();
-                ";
-
-                using (SqlCommand cmd = sqlCon.CreateCommand()) // SqlCommand cmd = new SqlCommand(cmdText, sqlCon) also possible
-                {
-                    cmd.CommandText = cmdText;
-
-                    cmd.Parameters.AddWithValue("name", Name);
-                    cmd.Parameters.AddWithValue("age", Age);
-                    cmd.Parameters.AddWithValue("personality", Personality);
-                    
-                    return (int) cmd.ExecuteScalar();
-                }
-            }
+            ID = int.MinValue;
         }
     }
 }
