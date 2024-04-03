@@ -7,10 +7,10 @@ namespace MyProgram
         static void Main(string[] args)
         {
             // Setting my connection string for my database.
-            string connectionString = "Super secret connectionString";
+            string connectionString = "Super secret connection string";
             
             // Creating an instance of the Person class
-            Person person = new Person("test123", 30, "INTP_T");
+            Person person = new Person("WHA", 30, "INTP_T");
 
             // Calling the InsertPersonRecord method for this person and saving the ID so I can print it out.
             object ID = person.InsertPersonRecord(connectionString);

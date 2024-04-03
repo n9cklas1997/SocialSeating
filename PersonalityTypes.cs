@@ -1,6 +1,6 @@
 namespace Human
 {
-        public enum PersonalityTypes 
+        public enum PersonalityType 
     {
     INTJ_A, INTJ_T,
     INTP_A, INTP_T,
