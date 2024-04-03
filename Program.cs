@@ -6,7 +6,7 @@ namespace MyProgram
     {
         static void Main(string[] args)
         {
-            // Connection string
+            // Setting my connection string for my database.
             string connectionString = "Data Source=DESKTOP-8G6DJAM\\SQLEXPRESS;Initial Catalog=SocialSeating;Integrated Security=True;Encrypt=False";
             
             // Creating an instance of the Person class
