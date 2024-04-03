@@ -3,7 +3,7 @@ namespace Human
     class Person
     {
         // Private Fields
-        private string? personalityType; // ? is a feature in C# 8.0 to indicate that a variable is nullable.
+        private string? _PersonalityType; // ? is a feature in C# 8.0 to indicate that a variable is nullable.
 
         // Properties
         public string Name {get; set;}
@@ -12,26 +12,25 @@ namespace Human
 
         public string? PersonalityType
         {
-            get { return personalityType; }
+            get { return _PersonalityType; }
             set
             {
                 if (value == "INTJ-A" || value == "INTJ-T")
                 {
-                    personalityType = value;
+                    _PersonalityType = value;
                 }
                 else
-                    personalityType = "no type specified";
+                    _PersonalityType = "no type specified";
             }
         }
 
         
         // Constructors
-        public Person(string aName, int aAge, string aPersonalityType)
+        public Person(string name, int age, string personalityType)
         {
-            Name = aName;
-            Age = aAge;
-            PersonalityType = aPersonalityType;
-
+            Name = name;
+            Age = age;
+            PersonalityType = personalityType;
         }
     }
 }
