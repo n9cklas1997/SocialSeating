@@ -1,3 +1,5 @@
+using Microsoft.Data.SqlClient;
+
 namespace Human
 {
     class Person
@@ -32,5 +34,30 @@ namespace Human
             Age = age;
             PersonalityType = personalityType;
         }
+
+        // Method that takes a connection string to a database and inserts the attributes (name, age & personality type) of a person. 
+        // Then the method returns the ID of said person.
+        public object InsertPersonRecord(string connectionString)
+    {
+        using (SqlConnection sqlCon = new SqlConnection(connectionString))
+        {
+            sqlCon.Open();
+
+            string cmdText = @"
+                INSERT INTO PersonsTable (Name, Age, PersonalityType)
+                VALUES (@name, @age, @personalityType);
+                SELECT SCOPE_IDENTITY();
+            ";
+
+            using (SqlCommand cmd = new SqlCommand(cmdText, sqlCon))
+            {
+                cmd.Parameters.AddWithValue("name", Name);
+                cmd.Parameters.AddWithValue("age", Age);
+                cmd.Parameters.AddWithValue("personalityType", PersonalityType);
+                
+                return cmd.ExecuteScalar();
+            }
+        }
+    }
     }
 }

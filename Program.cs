@@ -6,16 +6,15 @@ namespace MyProgram
     {
         static void Main(string[] args)
         {
+            // Connection string
+            string connectionString = "Data Source=DESKTOP-8G6DJAM\\SQLEXPRESS;Initial Catalog=SocialSeating;Integrated Security=True;Encrypt=False";
             
-            Person person1 = new Person("Lars", 26, "INTJ-A");
-            Person person2 = new Person("Frederik", 29, "INTJ-T");
+            // Creating an instance of the Person class
+            Person person = new Person("Doe", 25, "asdasd");
 
-            //Showcase different ways of printning
-            Console.WriteLine($"{person1.Name} is {person1.Age} years old and has the personality of a {person1.PersonalityType}");
-            Console.WriteLine(person2.Name + " is " + person2.Age + " years old and has the personality of a " + person2.PersonalityType);
-
-            
-            Console.ReadKey();
+            // Calling the InsertPersonRecord method for this person and saving the ID so I can print it out.
+            object ID = person.InsertPersonRecord(connectionString);
+            Console.WriteLine("Inserted record's ID is: " + ID);
         }
     }
 }
