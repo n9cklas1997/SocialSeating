@@ -12,12 +12,12 @@ namespace Human
     
         public int Age {get; set;}
 
-        public string? PersonalityType
+        public string? PersonalityType // When setting a value, we check if the value is null and if is in the Enum called PersonalityTypes
         {
             get { return _PersonalityType; }
             set
             {
-                if (value == "INTJ-A" || value == "INTJ-T")
+                if (value != null && Enum.IsDefined(typeof(PersonalityTypes), value))
                 {
                     _PersonalityType = value;
                 }

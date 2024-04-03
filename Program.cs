@@ -10,7 +10,7 @@ namespace MyProgram
             string connectionString = "Super secret connectionString";
             
             // Creating an instance of the Person class
-            Person person = new Person("Lars", 30, "INTJ-A");
+            Person person = new Person("test123", 30, "INTP_T");
 
             // Calling the InsertPersonRecord method for this person and saving the ID so I can print it out.
             object ID = person.InsertPersonRecord(connectionString);

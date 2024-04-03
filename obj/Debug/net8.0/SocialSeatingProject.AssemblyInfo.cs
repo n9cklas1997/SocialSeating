@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SocialSeatingProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a647558755129b6a21cbbd0e0652acb526bcb0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2d417905b0c6b383f42f9a28580e844fc87e280")]
 [assembly: System.Reflection.AssemblyProductAttribute("SocialSeatingProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SocialSeatingProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
