@@ -37,7 +37,7 @@ namespace Human
 
         // Method that takes a connection string to a database and inserts the attributes (name, age & personality type) of a person. 
         // Then the method returns the ID of said person.
-        public object InsertPersonRecord(string connectionString)
+        public int InsertPersonRecord(string connectionString)
         {
             using (SqlConnection sqlCon = new SqlConnection(connectionString))
             {
@@ -57,7 +57,7 @@ namespace Human
                     cmd.Parameters.AddWithValue("age", Age);
                     cmd.Parameters.AddWithValue("personality", Personality);
                     
-                    return cmd.ExecuteScalar();
+                    return (int) cmd.ExecuteScalar();
                 }
             }
         }
