@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N9A2boqdBjSIVqGNc+zpkN+8SgAu5l6VRe5OAfL6Ww682MretQi1Nd0ERl34vwfL0tpIhS1W2cWP5G+zyLlaAg==",
+  "dgSpecHash": "hQQ1KZhiGFlxBV0PPUbPwL+BrwbSRY8DuwZiMbYEYhWnfpYZDk7W6yK9Ts5kRGmw39l342wD5M389wV29YhBhA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
+  "projectFilePath": "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicklas\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Nicklas\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

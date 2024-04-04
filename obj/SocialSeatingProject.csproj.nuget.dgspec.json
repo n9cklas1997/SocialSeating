@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj": {}
+    "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj": {
+    "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
+        "projectUniqueName": "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
         "projectName": "SocialSeatingProject",
-        "projectPath": "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
+        "projectPath": "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\SocialSeatingProject.csproj",
         "packagesPath": "C:\\Users\\Nicklas\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\obj\\",
+        "outputPath": "C:\\Users\\Nicklas\\Desktop\\Programmering\\GitHubRepos\\SocialSeating\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nicklas\\AppData\\Roaming\\NuGet\\NuGet.Config",
