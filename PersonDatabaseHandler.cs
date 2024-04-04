@@ -3,8 +3,6 @@ using Microsoft.Data.SqlClient;
 
 public class PersonDatabaseHandler
 {
-    // Method that takes a connection string to a database and inserts the attributes (name, age & personality type) of a person. 
-    // Then the method returns the ID of said person.
     private string _connectionString;
 
     public PersonDatabaseHandler(string connectionString)
@@ -32,9 +30,49 @@ public class PersonDatabaseHandler
                 cmd.Parameters.AddWithValue("age", person.Age);
                 cmd.Parameters.AddWithValue("personality", person.Personality);
                 
-                var dum = cmd.ExecuteScalar();
-                person.ID = Convert.ToInt32(dum);
+                object temp = cmd.ExecuteScalar();
+                person.ID = Convert.ToInt32(temp);
             }
         }
     }
-}
+
+     public Person SelectPersonRecord(int personId)
+    {
+        Person? person = null;
+
+        using (SqlConnection sqlCon = new SqlConnection(_connectionString)) // Establish a connection
+        {
+            sqlCon.Open();
+            
+            string cmdText = @"
+                SELECT ID, Name, Age, Personality
+                FROM PersonsTable
+                WHERE ID = @personId
+            ";
+
+            using (SqlCommand cmd = new SqlCommand(cmdText, sqlCon)) // Create a SQL command that has a query and a connection as input.
+            {
+                cmd.Parameters.AddWithValue("@personId", personId);
+
+                using (SqlDataReader reader = cmd.ExecuteReader()) // Executes the SQL command (Reader when you have a return value)
+                {
+                    if (reader.Read())
+                    {
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        int age = reader.GetInt32(2);
+                        string personality = reader.GetString(3);
+                        
+                        person = new Person(id, name, age, personality);
+                    }
+                    else
+                    {
+                         throw new InvalidOperationException("Person record not found.");
+                    }
+                }
+            }
+        }
+        
+        return person;
+    }
+ }

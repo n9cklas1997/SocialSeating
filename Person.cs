@@ -36,5 +36,12 @@ namespace Human
             Personality = personality;
             ID = int.MinValue;
         }
+        public Person(int ID, string name, int age, string personality)
+        {
+            Name = name;
+            Age = age;
+            Personality = personality;
+            ID = int.MinValue;
+        }
     }
 }
