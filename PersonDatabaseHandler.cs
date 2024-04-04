@@ -12,25 +12,26 @@ public class PersonDatabaseHandler
     
     public void InsertPersonRecord(Person person)
     {
-        using (SqlConnection sqlCon = new SqlConnection(_connectionString))
+        using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            sqlCon.Open();
 
-            string cmdText = @"
+            string commandText = 
+                @"
                 INSERT INTO PersonsTable (Name, Age, Personality)
                 VALUES (@name, @age, @personality);
                 SELECT SCOPE_IDENTITY();
-            ";
+                ";
 
-            using (SqlCommand cmd = sqlCon.CreateCommand())
+            using (SqlCommand command = connection.CreateCommand())
             {
-                cmd.CommandText = cmdText;
+                command.CommandText = commandText;
 
-                cmd.Parameters.AddWithValue("name", person.Name);
-                cmd.Parameters.AddWithValue("age", person.Age);
-                cmd.Parameters.AddWithValue("personality", person.Personality);
+                command.Parameters.AddWithValue("name", person.Name);
+                command.Parameters.AddWithValue("age", person.Age);
+                command.Parameters.AddWithValue("personality", person.Personality);
                 
-                object temp = cmd.ExecuteScalar();
+                connection.Open();
+                object temp = command.ExecuteScalar();
                 person.ID = Convert.ToInt32(temp);
             }
         }
@@ -40,23 +41,24 @@ public class PersonDatabaseHandler
     {
         Person? person = null;
 
-        using (SqlConnection sqlCon = new SqlConnection(_connectionString)) // Establish a connection
+        using (SqlConnection connection = new SqlConnection(_connectionString)) // Establish a connection
         {
-            sqlCon.Open();
-            
-            string cmdText = @"
+            string commandText = 
+                @"
                 SELECT ID, Name, Age, Personality
                 FROM PersonsTable
                 WHERE ID = @personId
-            ";
-
-            using (SqlCommand cmd = new SqlCommand(cmdText, sqlCon)) // Create a SQL command that has a query and a connection as input.
+                ";
+        
+            using (SqlCommand command = new SqlCommand(commandText, connection)) // Create a SQL command that has a query and a connection as input.
             {
-                cmd.Parameters.AddWithValue("@personId", personId);
+                command.Parameters.AddWithValue("@personId", personId);
 
-                using (SqlDataReader reader = cmd.ExecuteReader()) // Executes the SQL command (Reader when you have a return value)
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader()) // Executes the SQL command (Reader when you have a return value)
                 {
-                    if (reader.Read())
+                    if (reader.Read()) // If the correct ID is found
                     {
                         int id = reader.GetInt32(0);
                         string name = reader.GetString(1);

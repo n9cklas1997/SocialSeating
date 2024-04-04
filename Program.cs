@@ -7,16 +7,16 @@ namespace MyProgram
         static void Main(string[] args)
         {
             // Setting my connection string for my database.
-            string connectionString = "Data Source=DESKTOP-8G6DJAM\\SQLEXPRESS;Initial Catalog=SocialSeating;Integrated Security=True;Encrypt=False";
+            string connectionString = "Super secret connection string";
             
             // Creating an instances of classes
             var person = new Person("update", 111, "wrong");
             var personDatabaseHandler = new PersonDatabaseHandler(connectionString);
 
             
-            var person2 = personDatabaseHandler.SelectPersonRecord(3);
+            // var person2 = personDatabaseHandler.SelectPersonRecord(1);
 
-            Console.WriteLine(person2.Age);
+            // Console.WriteLine(person2.Age);
             
             // person.Age = 10;
             // person.Name = "John";
@@ -24,9 +24,8 @@ namespace MyProgram
 
             // Calling the InsertPersonRecord method for a person and printing out the ID.
             
-            // personDatabaseHandler.UpdatePersonRecord(person);
-            
-            // personDatabaseHandler.InsertPersonRecord(person);
+                   
+            personDatabaseHandler.InsertPersonRecord(person);
             // Console.WriteLine("Inserted record's ID is: " + person.ID);
         }
     }
