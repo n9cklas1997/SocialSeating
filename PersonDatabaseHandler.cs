@@ -5,6 +5,7 @@ public class PersonDatabaseHandler
 {
     private string _connectionString;
 
+
     public PersonDatabaseHandler(string connectionString)
     {
        _connectionString = connectionString;
@@ -37,7 +38,7 @@ public class PersonDatabaseHandler
         }
     }
 
-     public Person SelectPersonRecord(int personId)
+    public Person SelectPersonRecord(int personId)
     {
         Person? person = null;
 
@@ -60,10 +61,15 @@ public class PersonDatabaseHandler
                 {
                     if (reader.Read()) // If the correct ID is found
                     {
-                        int id = reader.GetInt32(0);
-                        string name = reader.GetString(1);
-                        int age = reader.GetInt32(2);
-                        string personality = reader.GetString(3);
+                        int idOrdinal = reader.GetOrdinal("ID");
+                        int nameOrdinal = reader.GetOrdinal("Name");
+                        int ageOrdinal = reader.GetOrdinal("Age");
+                        int personalityOrdinal = reader.GetOrdinal("Personality");
+
+                        int id = reader.GetInt32(idOrdinal);
+                        string name = reader.GetString(nameOrdinal);
+                        int age = reader.GetInt32(ageOrdinal);
+                        string personality = reader.GetString(personalityOrdinal);
                         
                         person = new Person(id, name, age, personality);
                     }
@@ -76,5 +82,48 @@ public class PersonDatabaseHandler
         }
         
         return person;
+    }
+
+    public List<Person> SelectMultiplePersons(Dictionary<string, object> filters)
+    {
+        List<Person> persons = new List<Person>();
+
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string commandText = "SELECT ID, Name, Age, Personality FROM PersonsTable WHERE 1=1";
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+
+            foreach (KeyValuePair<string, object> filter in filters)
+            {
+                commandText += $" AND {filter.Key} = @{filter.Key}";
+                command.Parameters.AddWithValue($"@{filter.Key}", filter.Value);
+            }
+
+            command.CommandText = commandText;
+
+            connection.Open();
+
+            using (SqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int idOrdinal = reader.GetOrdinal("ID");
+                    int nameOrdinal = reader.GetOrdinal("Name");
+                    int ageOrdinal = reader.GetOrdinal("Age");
+                    int personalityOrdinal = reader.GetOrdinal("Personality");
+                    
+                    int id = reader.GetInt32(idOrdinal);
+                    string name = reader.GetString(nameOrdinal);
+                    int age = reader.GetInt32(ageOrdinal);
+                    string personality = reader.GetString(personalityOrdinal);
+                    
+                    Person person = new Person(id, name, age, personality);
+                    persons.Add(person);
+                }
+            }
+        }
+
+        return persons;
     }
  }

@@ -7,10 +7,10 @@ namespace MyProgram
         static void Main(string[] args)
         {
             // Setting my connection string for my database.
-            string connectionString = "Super secret connection string";
-            
+            string connectionString = "Super secret connectionString";
+
             // Creating an instances of classes
-            var person = new Person("update", 111, "wrong");
+            var person = new Person("update", 99, "wrong");
             var personDatabaseHandler = new PersonDatabaseHandler(connectionString);
 
             
@@ -25,7 +25,19 @@ namespace MyProgram
             // Calling the InsertPersonRecord method for a person and printing out the ID.
             
                    
-            personDatabaseHandler.InsertPersonRecord(person);
+            // personDatabaseHandler.InsertPersonRecord(person);
+
+            Dictionary<string, object> filters = new Dictionary<string, object>();
+            filters.Add("Age", "99");
+
+            List<Person> persons = personDatabaseHandler.SelectMultiplePersons(filters);
+
+            foreach(Person p in persons)
+            {
+                Console.WriteLine(p.Personality);
+            }
+
+
             // Console.WriteLine("Inserted record's ID is: " + person.ID);
         }
     }
