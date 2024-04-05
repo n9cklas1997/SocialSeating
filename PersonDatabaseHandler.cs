@@ -84,7 +84,7 @@ public class PersonDatabaseHandler
         return person;
     }
 
-    public List<Person> SelectMultiplePersons(Dictionary<string, object> filters)
+    public List<Person> SelectMultiplePersonRecords(Dictionary<string, object> filters)
     {
         List<Person> persons = new List<Person>();
 

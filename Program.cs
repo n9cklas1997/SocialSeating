@@ -30,7 +30,7 @@ namespace MyProgram
             Dictionary<string, object> filters = new Dictionary<string, object>();
             filters.Add("Age", "99");
 
-            List<Person> persons = personDatabaseHandler.SelectMultiplePersons(filters);
+            List<Person> persons = personDatabaseHandler.SelectMultiplePersonRecords(filters);
 
             foreach(Person p in persons)
             {
